@@ -1,0 +1,9 @@
+[alias]
+    pu = push
+    pl = pull
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    his= log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    ls = ls-files
