@@ -80,3 +80,4 @@ endfunction
 
 let mapleader = "\<Space>"
 nmap <leader>z :call Zoom()<CR>
+let g:go_version_warning = 0
