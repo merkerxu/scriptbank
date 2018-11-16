@@ -1,0 +1,11 @@
+[Unit]
+Description=ES Exporter
+Documentation=https://github.com/justwatchcom/elasticsearch_exporter
+
+[Service]
+User=prometheus
+EnvironmentFile=/etc/sysconfig/elastic_exporter
+ExecStart=/usr/local/prometheus/exporter/elasticsearch_exporter $OPTIONS
+
+[Install]
+WantedBy=multi-user.target
