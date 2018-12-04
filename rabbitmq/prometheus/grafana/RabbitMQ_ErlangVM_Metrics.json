@@ -52,7 +52,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1542378610581,
+  "iteration": 1543918874861,
   "links": [],
   "panels": [
     {
@@ -931,14 +931,14 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "erlang_vm_statistics_bytes_output_total{instance=\"$node\",job=\"rabbitmq\"}",
+              "expr": "irate(erlang_vm_statistics_bytes_output_total{instance=\"$node\",job=\"rabbitmq\"}[30s])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "bytes_output",
               "refId": "A"
             },
             {
-              "expr": "erlang_vm_statistics_bytes_received_total{instance=\"$node\",job=\"rabbitmq\"}",
+              "expr": "irate(erlang_vm_statistics_bytes_received_total{instance=\"$node\",job=\"rabbitmq\"}[30s])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "bytes_received",
@@ -1106,7 +1106,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "irate(erlang_vm_statistics_garbage_collection_number_of_gcs{instance=\"$node\",job=\"rabbitmq\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_garbage_collection_number_of_gcs{instance=\"$node\",job=\"rabbitmq\"}[30s])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "gc rate",
@@ -1190,7 +1190,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "irate(erlang_vm_statistics_garbage_collection_bytes_reclaimed{instance=\"$node\",job=\"rabbitmq\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_garbage_collection_bytes_reclaimed{instance=\"$node\",job=\"rabbitmq\"}[30s])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "gc bytes rate",
@@ -1274,7 +1274,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "irate(erlang_vm_statistics_garbage_collection_words_reclaimed{instance=\"$node\",job=\"rabbitmq\"}[5m])",
+              "expr": "irate(erlang_vm_statistics_garbage_collection_words_reclaimed{instance=\"$node\",job=\"rabbitmq\"}[30s])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "gc words rate",
@@ -2426,12 +2426,14 @@
               "expr": "process_open_fds{instance=\"$node\",job=\"rabbitmq\"}",
               "format": "time_series",
               "intervalFactor": 1,
+              "legendFormat": "open_fds",
               "refId": "A"
             },
             {
               "expr": "process_max_fds{instance=\"$node\",job=\"rabbitmq\"}",
               "format": "time_series",
               "intervalFactor": 1,
+              "legendFormat": "max_fds",
               "refId": "B"
             }
           ],
@@ -2606,7 +2608,7 @@
               "expr": "process_threads_total{instance=\"$node\",job=\"rabbitmq\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "start_time",
+              "legendFormat": "threads",
               "refId": "A"
             }
           ],
@@ -2629,7 +2631,7 @@
           },
           "yaxes": [
             {
-              "format": "s",
+              "format": "short",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -2778,17 +2780,10 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "irate(process_cpu_seconds_total{instance=\"$node\",job=\"rabbitmq\",kind=\"utime\"}[5m])",
+              "expr": "sum(irate(process_cpu_seconds_total{instance=\"$node\",job=\"rabbitmq\"}[30s])) without (kind) * 100",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "virtual",
-              "refId": "A"
-            },
-            {
-              "expr": "irate(process_cpu_seconds_total{instance=\"$node\",job=\"rabbitmq\",kind=\"stime\"}[5m])",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "legendFormat": "resident",
+              "legendFormat": "cpu",
               "refId": "B"
             }
           ],
@@ -2811,7 +2806,7 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "percent",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -2837,6 +2832,7 @@
       "type": "row"
     }
   ],
+  "refresh": "5s",
   "schemaVersion": 16,
   "style": "dark",
   "tags": [],
@@ -2865,7 +2861,7 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -2896,5 +2892,5 @@
   "timezone": "",
   "title": "RabbitMQ Erlang VM & OTP Metrics",
   "uid": "966ZSJfmk",
-  "version": 1
+  "version": 6
 }
