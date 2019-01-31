@@ -1,0 +1,12 @@
+[Unit]
+Description=mysqld
+After=local-fs.target network.target nginx.service
+
+[Service]
+User=mysql
+PIDFile=/data/mysql/log/mysqld.pid
+ExecStart=/usr/local/mysql/bin/mysqld $MYSQLD_OPTS
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
