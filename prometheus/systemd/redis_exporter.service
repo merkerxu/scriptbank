@@ -1,5 +1,5 @@
 [Unit]
-Description=Node Exporter
+Description=Redis Exporter, grafana tpl no 763
 Documentation=https://github.com/oliver006/redis_exporter
 After=network-online.target
 
