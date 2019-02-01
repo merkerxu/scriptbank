@@ -1,0 +1,14 @@
+[Unit]
+Description=Node Exporter
+Documentation=https://github.com/oliver006/redis_exporter
+After=network-online.target
+
+[Service]
+User=prometheus
+EnvironmentFile=/etc/sysconfig/redis_exporter
+ExecStart=/usr/local/prometheus/bin/redis_exporter      \
+            -redis-only-metrics                         \
+            -redis.addr=${REDIS_ADDR}
+
+[Install]
+WantedBy=multi-user.target
