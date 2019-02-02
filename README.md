@@ -3,6 +3,6 @@
 - vimrc
 - gitconfig
 - lnmp
-  -- nginx.service
-  -- php-fpm.service
-  -- mysqld.service
+  - nginx.service
+  - php-fpm.service
+  - mysqld.service
