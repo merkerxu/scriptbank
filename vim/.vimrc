@@ -29,6 +29,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'easymotion/vim-easymotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -82,3 +83,4 @@ let mapleader = "\<Space>"
 nmap <leader>z :call Zoom()<CR>
 let g:go_version_warning = 0
 let g:go_fmt_options = ''
+map <leader>w <Plug>(easymotion-w)
