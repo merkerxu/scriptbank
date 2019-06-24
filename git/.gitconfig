@@ -8,6 +8,7 @@
     his= log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     ls = ls-files
 	d = difftool
+    list = ls-tree --name-only HEAD
 [diff]
 	tool = vimdiff
 [difftool]
