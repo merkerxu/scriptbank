@@ -8,6 +8,7 @@ User=prometheus
 Restart=on-failure
 ExecStart=/usr/local/prometheus/bin/prometheus				\
 		--config.file=/usr/local/prometheus/etc/prometheus.yml 	\
+        --storage.tsdb.retention=15d    \
 		--storage.tsdb.path=/data/prometheus
 
 [Install]
