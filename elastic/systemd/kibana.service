@@ -1,0 +1,12 @@
+[Unit]
+Description=elasticsearch
+Documentation=http://www.elastic.co
+After=network.target
+
+[Service]
+User=elastic
+WorkingDirectory=/usr/local/kibana
+ExecStart=/usr/local/kibana/bin/kibana -q -c /usr/local/kibana/config/kibana.yml -l /data/kibana/kibana.log
+
+[Install]
+WantedBy=multi-user.target
