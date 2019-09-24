@@ -1,6 +1,6 @@
 [alias]
     ps = push
-    pl = pull
+    pl = pull --rebase
     co = checkout
     ci = commit
     st = status
