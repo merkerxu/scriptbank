@@ -1,0 +1,16 @@
+[Unit]
+Description=ClickHouse Server
+After=network.target
+
+[Service]
+User=clickhouse
+Group=clickhouse
+Type=simple
+ExecStart=/usr/local/clickhouse/bin/clickhouse server \
+        --config=/usr/local/clickhouse/etc/clickhouse-server/config.xml \
+        --pid-file=/data/clickhouse/log/clickhouse-server.pid
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
