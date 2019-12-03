@@ -1,6 +1,6 @@
 [Unit]
-Description=ES Exporter
-Documentation=https://github.com/justwatchcom/elasticsearch_exporter
+Description=ClickHouse Exporter
+Documentation= https://github.com/percona-lab/clickhouse_exporter
 
 [Service]
 User=clickhouse
