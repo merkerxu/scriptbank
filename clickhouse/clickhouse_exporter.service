@@ -1,0 +1,11 @@
+[Unit]
+Description=ES Exporter
+Documentation=https://github.com/justwatchcom/elasticsearch_exporter
+
+[Service]
+User=clickhouse
+EnvironmentFile=/etc/sysconfig/clickhouse_exporter
+ExecStart=/usr/local/prometheus/exporter/clickhouse_exporter $OPTIONS
+
+[Install]
+WantedBy=multi-user.target
