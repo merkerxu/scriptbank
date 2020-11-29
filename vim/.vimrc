@@ -50,7 +50,7 @@ let NERDTreeWinSize=20
 map <C-N> :NERDTreeToggle<CR>
 
 " configuration for nerdtree-git
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
