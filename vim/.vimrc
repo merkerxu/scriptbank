@@ -7,6 +7,7 @@ set cursorline
 set fileformat=unix
 set autoindent
 set textwidth=80
+set hlsearch
 ""查找不区分大小写
 set ignorecase
 set encoding=utf-8
